@@ -25,7 +25,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-          docker build -t IWTPL/memory-2026:latest .
+          docker build -t docker.io/${{ secrets.DOCKER_USERNAME }}/memory-2026:latest .
 
 
   puush-memory-2026:
