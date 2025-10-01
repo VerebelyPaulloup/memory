@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+    - develop
+
+jobs:
+  test-memory-2026 :
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Test JPEG
+        run: file my-file.jpg
