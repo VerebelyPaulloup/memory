@@ -15,3 +15,18 @@ jobs:
           for file in $(find . -type f \( -name "*.jpg" -o -name "*.jpeg" \)); do
             file "$file"
           done
+    
+  build-memory-2026:
+    needs: test-memory-2026
+    runs-on: self-hosted
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Build Docker image
+      run: |
+          docker build -t IWTPL/memory-2026:latest .
+          
+
+    
+     
