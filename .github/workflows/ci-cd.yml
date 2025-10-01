@@ -48,7 +48,17 @@ jobs:
         push: true
         tags: docker.io/${{ secrets.DOCKER_USERNAME }}/memory-2026:latest
 
-          
+  deploy-memory-2026:
+    needs: puush-memory-2026
+    runs-on: self-hosted
+    steps:
+    - name: Pull docker image
+      run: docker pull .io/${{ secrets.DOCKER_USERNAME }}/memory-2026:latest
 
-    
+    - name: Build the container
+      run: docker run -d \
+          --name mermory \
+          -p 8080:80 \
+          .io/${{ secrets.DOCKER_USERNAME }}/memory-2026:latest
+
      
